@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<style>
+    tr:nth-child(even){background-color: whitesmoke}
+    tr:nth-child(odd){background-color: white}
+    table, td, th {
+        border-radius: 10px;
+        border: white;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        position: relative;
+        top: 210px;
+        left:350px;
+        box-shadow: 10px 10px 5px #222222;
+
+    }
+
+    th, td {
+        padding: 15px;
+    }
+    th{
+        background-color: blue;
+        color: white;
+    }
+    a:link{
+        color:blue;
+    }
+    a:visited{
+        color:blue;
+    }
+
+    #backdrop{
+        background-color:#269;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+    }
+</style>
+<%include partials/header.ejs%>
+<html id="backdrop">
+<%include partials/menu.ejs%>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <th colspan="2">Pokemon</th> <th>Type</th>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/Pokemon/?pokemon_id=<%= rs[i].ID %>"><img src=<%= rs[i].Sprite %> height="64"></a></td>
+            <td><a href="/Pokemon/?pokemon_id=<%= rs[i].ID %>"> <%= rs[i].Name %></a></td>
+            <td> <%= rs[i].Type %></td>
+
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No pokemons exist.
+    <% } %>
+</div>
+</html>

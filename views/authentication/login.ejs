@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+form{
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    right:9%;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px #222222;
+    background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+}
+#backdrop{
+    background-color:#269;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=pasword]:focus {
+    border: 3px solid #555;
+}
+
+
+</style>
+<html id="backdrop">
+<% include ../partials/header.ejs %>
+<% include ../partials/menu.ejs%>
+<% if(typeof msg !== "undefined") { %>
+<%= msg %>
+<% } %>
+<form action="/authenticate">
+    <label for="email">Email:</label><input type="text" id="email" name="email" /><br /><br/>
+    <label for="password">Password:</label><input type="password" id="password" name="password" /><br />
+    <button>Go!</button>
+</form>
+
+<% include ../partials/footer.ejs %>
+</html>

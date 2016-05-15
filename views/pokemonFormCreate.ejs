@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<style>
+    #backdrop{
+        background-color:#269;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+    }
+    .content{
+        border-radius: 25px;
+        padding: 20px;
+        box-shadow: 10px 10px 5px #222222;
+        background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+        position: absolute;
+        top: 250px;
+        left: 600px;
+        right:9%;
+        height: 400px;
+
+         }
+    input{
+        position: absolute;
+        left: 150px;
+    }
+    select{
+        position: absolute;
+        left: 150px;
+    }
+</style>
+<html id = backdrop>
+<% include partials/header.ejs %>
+
+<% include partials/menu.ejs%>
+<form action="/pokemonCreate/save/">
+    <div class="content">
+        <label for="name">Name</label> <input type="text" id="name" name="name" /><br /><br />
+        <label for="description">Description</label> <input type="text" id="Description" name="description" /><br /><br />
+        <label for="hp">HP</label> <input type="number" id="hp" min="5" max= "250" name="hp" /><br /><br />
+        <label for="attack">Attack</label> <input type="number" id="attack" min="5" max= "200" name="attack" /><br /><br />
+        <label for="defense">Defense</label> <input type="number" id="defense" min="5" max= "200" name="defense" /><br /><br />
+        <label for="special_attack">Special Attack</label> <input type="number" id="special_attack" min="5" max= "200" name="special_attack" /><br /><br />
+        <label for="special_defense">Special Defense</label> <input type="number" id="special_defense" min="5" max= "200" name="special_defense" /><br /><br />
+        <label for="speed">Speed</label> <input type="number" id="speed" min="5" max= "200" name="speed" /><br /><br />
+        <label for="sprite">Sprite</label> <input type="text" id="sprite" name="sprite" /><br /><br />
+        <label for="type">Type</label>
+        <select name="type">
+            <% if(rs.length > 0) { %>
+            <% for (var i=0; rs.length > i; i++) { %>
+            <option><%=rs[i].Type%></option>
+            <% } %>
+            <% } else { %>
+            No types exist.
+            <% } %>
+        </select><br /><br />
+        <input type="submit" />
+
+    </div>
+
+
+
+</form>
+
+<% include partials/footer %>
+</html>

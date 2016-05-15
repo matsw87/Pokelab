@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<style>
+#backdrop{
+    background-color:#269;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+@font-face {
+    font-family: Pokefont;
+    src:  url(http://dl.dropbox.com/u/258536/pokefonts/Pokemon%20Solid.ttf);
+}
+@font-face {
+    font-family: Pokefont2;
+    src:  url(http://dl.dropbox.com/u/258536/pokefonts/Pokemon%20DPPt.ttf)
+}
+h1{
+    font-family: Pokefont;
+    position: relative;
+    top:-35px;
+    color: blue;
+}
+p{
+    font-family: Pokefont2;
+    font-size: 22pt;
+    position: relative;
+    top: -40px;
+}
+.content{
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    right:9%;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px #222222;
+    background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+}
+</style>
+<html id="backdrop">
+<%include partials/header.ejs%>
+<%include partials/menu.ejs%>
+    <div class="content">
+        <center>
+            <h1>
+                About Pokélab
+            </h1>
+        </center>
+        <p>
+            Pokélab was founded in early April, 2016.  Pokélab is
+            designed so YOU can view your favorite first generation
+            Pokémon, their abilities, and what moves they can learn.
+            Not only can you view Pokemon but now for the first time
+            you can create your very own Pokémon!
+        </p>
+    </div>
+<%include partials/footer.ejs%>
+</html>

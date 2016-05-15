@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family: Pokefont;
+        src:  url(http://dl.dropbox.com/u/258536/pokefonts/Pokemon%20Solid.ttf);
+    }
+    .menu {
+        position: fixed;
+        top: 250px;
+        border-radius: 25px;
+        line-height: 30px;
+        background-color: gold;
+        height: 400px;
+        width: 200px;
+        float: left;
+        padding: 10px;
+        font-family: Pokefont;
+        font-size: xx-large;
+        text-align: center;
+        color: blue;
+        letter-spacing: 2px;
+        box-shadow: 10px 10px 5px #222222;
+        background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+    }
+    a:visited{
+             color:blue;
+    }
+    a:hover{
+        transition: text-shadow .4s;
+        text-shadow: 2px 2px 4px #000000;
+    }
+    a:hover:after{
+        transition: text-shadow .4s;
+    }
+</style>
+<body>
+<div class = menu>
+    <br/>
+    <br/>
+    <a href="http://localhost:3000" style="text-decoration: none">Home</a>
+    <br/>
+    <br/>
+    <a href="/Pokemon/all" style="text-decoration: none">Pokédex</a>
+    <br/>
+    <br/>
+    <a href="/Abilities/all" style="text-decoration: none">Abilities</a>
+    <br/>
+    <br/>
+    <a href="/Moves/all" style="text-decoration: none">Moves</a>
+    <br/>
+    <br/>
+    <a href="/about" style="text-decoration: none">About</a>
+</div>
+</body>

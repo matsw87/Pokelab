@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<style>
+    #backdrop{
+        background-color:#269;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+    }
+    .bords {
+        border-radius: 25px;
+        line-height: 30px;
+        background-color: gold;
+        height: 450px;
+        width: 300px;
+        float: left;
+        padding: 10px;
+        color: blue;
+        box-shadow: 10px 10px 5px #222222;
+        background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+        position: absolute;
+        top: 250px;
+        left: 290px;
+    }
+    .moves {
+        border-radius: 25px;
+        line-height: 30px;
+        background-color: gold;
+        height: 450px;
+        width: 300px;
+        float: left;
+        padding: 10px;
+        color: blue;
+        box-shadow: 10px 10px 5px #222222;
+        background: linear-gradient(-90deg, yellow, gold); /* Standard syntax */
+        position: absolute;
+        top: 250px;
+        left: 690px;
+    }
+    #moveslist {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
+
+</style>
+<html id="backdrop">
+<%include partials/header.ejs%>
+<%include partials/menu.ejs%>
+
+<div class="bords">
+<% if(rs.length > 0) { %>
+Name: <%= rs[0].Name %> <img src=<%= rs[0].Sprite %> height="64" >
+    <ul>
+ <li> Type: <%= rs[0].Type %></li>
+    <li>HP: <%= rs[0].HP %></li>
+    <li>Attack: <%= rs[0].Attack %></li>
+    <li>Defense: <%= rs[0].Defense %></li>
+    <li>Special Attack: <%= rs[0].Special_Attack %></li>
+    <li>Special Defense: <%= rs[0].Special_Defense %></li>
+    <li>Speed: <%= rs[0].Speed %></li>
+    <li>Total: <%= rs[0].Total %></li>
+</ul>
+
+    Description:    <%= rs[0].Description %>
+<% } else { %>
+    <meta http-equiv="refresh" content="0; URL='http://new-website.com'" />
+<% } %>
+</div>
+<div class="moves">
+Moves:
+    <ul id="moveslist">
+        <% for(var i=0; i < rs.length; i++) {%>
+        <li><%= rs[i].Move_Name %></li>
+        <% } %>
+    </ul>
+</div>
+<%include partials/footer.ejs%>
+</html>

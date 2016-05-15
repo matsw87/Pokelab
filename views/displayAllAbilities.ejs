@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+    table, td, th {
+        border-radius: 10px;
+        border: white;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 70%;
+        position: relative;
+        top:210px;
+        left:240px;
+        box-shadow: 10px 10px 5px #222222;
+
+    }
+
+    th, td {
+        padding: 15px;
+    }
+    th{
+        background-color: blue;
+        color: white;
+    }
+    a:link{
+        color: blue;
+    }
+    a:visited{
+        color: blue;
+    }
+    a:active{
+        color: yellow;
+    }
+    #backdrop{
+        background-color:#269;
+        background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+    }
+    tr:nth-child(even){background-color: whitesmoke}
+    tr:nth-child(odd){background-color: white}
+</style>
+<html id="backdrop">
+<%include partials/menu.ejs%>
+
+<div>
+    <%include partials/header.ejs%>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Abilitiy</th> <th>Description</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td> <%= rs[i].Name %></td>
+            <td><%= rs[i].Description %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No pokemons exist.
+    <% } %>
+</div>
+</html>
